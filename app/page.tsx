@@ -1,7 +1,7 @@
-import styles from "../styles/pages/Home.module.css";
-import Newsletter from "../components/Newsletter/Newsletter";
+import styles from "@styles/pages/Home.module.css";
+import Newsletter from "@components/Newsletter/Newsletter";
 
-import { Articles } from "../utils/constants/dummyData";
+import { Articles } from "@utils/constants/dummyData";
 
 const Home = () => {
   return (

@@ -1,9 +1,10 @@
-import "../styles/layout.css";
 import type { Metadata } from "next";
-import { rubik } from "../utils/constants/fonts";
+import { rubik } from "@utils/constants/fonts";
 
-import NavigationBar from "../components/NavigationBar/NavigationBar";
-import Footer from "../components/Footer/Footer";
+import "@styles/layout.css";
+
+import NavigationBar from "@components/NavigationBar/NavigationBar";
+import Footer from "@components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Newsletter",
