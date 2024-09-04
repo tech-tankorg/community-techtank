@@ -1,0 +1,83 @@
+@layer resets, base, genericComponents;
+
+:root {
+  /* FONTS */
+  --ff-prmy: "Rubik", sans-serif;
+
+  --fs-sm-prmy: 0.75rem;
+  --fs-prmy: 1rem;
+  --fs-sec: 1.25rem;
+  --fs-tri: 1.75rem;
+  --fs-four: 2rem;
+
+  --fw-prmy: 400;
+  --fw-sec: 500;
+  --fw-tri: 700;
+
+  /* Colours */
+
+  --col-text-prmy: hsl(0, 0%, 0%);
+  --col-text-sec: hsl(0, 0%, 53%);
+
+  --col-acc-prmy: hsl(230, 62%, 66%);
+
+  /* Max width for containers */
+  --max-width-prmy: 1200px;
+  --max-width-sec: 900px;
+
+  /* border radius */
+  --border-radius-prmy: 10px;
+  --border-radius-sec: 20px;
+}
+
+@layer resets {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 1rem;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer base {
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    font-family: var(--ff-prmy);
+    font-size: var(--fs-prmy);
+    font-weight: var(--fw-prmy);
+
+    background-color: var(--col-background-prmy);
+    color: var(--col-text-prmy);
+  }
+
+  .mainContent {
+    max-width: var(--max-width-prmy);
+    margin: 0 auto;
+    padding: 0 1em;
+  }
+}
