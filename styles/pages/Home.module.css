@@ -17,6 +17,6 @@
 .newsletterWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  column-gap: 1em;
+  column-gap: 1.25em;
   row-gap: 2em;
 }
