@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { rubik } from "../utils/constants/fonts";
 
 import NavigationBar from "../components/NavigationBar/NavigationBar";
+import Footer from "../components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Newsletter",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={rubik.className}>
         <NavigationBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

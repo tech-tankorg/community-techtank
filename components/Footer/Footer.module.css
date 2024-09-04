@@ -1,0 +1,32 @@
+.mainWrapper {
+  background-color: #d9d9d9;
+  margin-top: 1.5em;
+}
+
+.footer {
+  padding: 1em;
+}
+
+.socialsWrapper {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialsLink {
+  color: hsl(0, 0%, 0%);
+}
+
+.socials {
+  display: flex;
+  gap: 1.25em;
+}
+
+.socialsIcon {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.copyright {
+  font-size: var(--fs-sm-prmy);
+}
