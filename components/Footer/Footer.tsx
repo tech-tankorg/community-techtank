@@ -1,4 +1,4 @@
-import React from "react";
+import cx from "classnames";
 import styles from "./Footer.module.css";
 
 import Logo from "../../public/Assets/svgs/logo";
@@ -9,7 +9,7 @@ import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer className={styles.mainWrapper}>
-      <section className={`mainContent ${styles.footer}`}>
+      <section className={cx("mainContent", styles.footer)}>
         <Logo />
         <section className={styles.socialsWrapper}>
           <div className={styles.socials}>

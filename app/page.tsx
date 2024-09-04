@@ -1,11 +1,12 @@
 import styles from "@styles/pages/Home.module.css";
+import cx from "classnames";
 import Newsletter from "@components/Newsletter/Newsletter";
 
 import { Articles } from "@utils/constants/dummyData";
 
 const Home = () => {
   return (
-    <main className={`mainContent ${styles.mainWrapper}`}>
+    <main className={cx("mainContent", styles.mainWrapper)}>
       <Newsletter
         categoryTitle={Articles[0].categoryTitle}
         articleTitle={Articles[0].articleTitle}

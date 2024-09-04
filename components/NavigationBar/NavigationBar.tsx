@@ -1,10 +1,11 @@
 import styles from "./NavigationBar.module.css";
+import cx from "classnames";
 
 import Logo from "../../public/Assets/svgs/logo";
 
 const NavigationBar = () => {
   return (
-    <nav className={`mainContent ${styles.mainWrapper}`}>
+    <nav className={cx("mainContent", styles.mainWrapper)}>
       <Logo />
       <ul className={styles.navItems}>
         <li className={styles.navItems_item}>Home</li>
