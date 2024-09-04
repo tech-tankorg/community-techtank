@@ -1,0 +1,21 @@
+.pageHeader {
+  text-transform: uppercase;
+  color: var(--col-acc-prmy);
+
+  font-size: var(--fs-sec);
+}
+
+.pageSubHeader {
+  font-size: var(--fs-prmy);
+  font-weight: var(--fw-sec);
+  color: var(--col-text-sec);
+
+  margin-bottom: 3rem;
+}
+
+.newsletterWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 1em;
+  row-gap: 2em;
+}

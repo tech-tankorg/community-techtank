@@ -1,0 +1,17 @@
+.mainWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.navItems {
+  list-style: none;
+  display: flex;
+  gap: 1.25em;
+}
+
+.navItems_item {
+  cursor: pointer;
+  user-select: none;
+}
