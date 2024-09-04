@@ -3,6 +3,7 @@
   color: var(--col-acc-prmy);
 
   font-size: var(--fs-sec);
+  margin-top: 2.25rem;
 }
 
 .pageSubHeader {
@@ -10,7 +11,7 @@
   font-weight: var(--fw-sec);
   color: var(--col-text-sec);
 
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 .newsletterWrapper {

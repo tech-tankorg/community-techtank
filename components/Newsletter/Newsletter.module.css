@@ -1,3 +1,7 @@
+.containerWrapper {
+  container: Article/inline-size;
+}
+
 .mainWrapper {
   display: flex;
   flex-direction: column;
@@ -49,4 +53,27 @@
 }
 .authorItems {
   font-size: var(--fs-sm-prmy);
+}
+
+@container Article (min-width:900px) {
+  .mainWrapper {
+    flex-direction: row;
+    gap: 1em;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: hidden;
+  }
+
+  .background {
+    height: 200px;
+  }
+
+  .articleMetadata {
+    align-content: end;
+  }
+
+  .author {
+    display: none;
+  }
 }
