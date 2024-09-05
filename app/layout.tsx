@@ -6,6 +6,7 @@ import "@styles/layout.css";
 
 import NavigationBar from "@components/NavigationBar/NavigationBar";
 import Footer from "@components/Footer/Footer";
+import RenderOnSelectPath from "@components/Generic/ToggleOnClient";
 
 export const metadata: Metadata = {
   title: "Newsletter",
@@ -20,9 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cx("layoutFormat", rubik.className)}>
-        <NavigationBar />
+        <RenderOnSelectPath>
+          <NavigationBar />
+        </RenderOnSelectPath>
+
         {children}
-        <Footer />
+        <RenderOnSelectPath>
+          <Footer />
+        </RenderOnSelectPath>
       </body>
     </html>
   );
