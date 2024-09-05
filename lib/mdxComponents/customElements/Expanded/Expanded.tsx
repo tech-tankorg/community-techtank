@@ -2,7 +2,7 @@
 import { ReactNode } from "react";
 import styles from "./expanded.module.css";
 
-import useToggle from "@utils/hooks/useToggle";
+import useToggle from "@utils/hooks/use-toggle";
 
 interface Props {
   children: ReactNode;

@@ -80,4 +80,25 @@
     margin: 0 auto;
     padding: 0 1em;
   }
+
+  .layoutFormat {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+  }
+  .layoutFormat > * {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  :root {
+    --fs-sm-prmy: 1rem;
+    --fs-prmy: 1.25rem;
+    --fs-sec: 1.5rem;
+    --fs-tri: 2rem;
+    --fs-four: 2.75rem;
+  }
 }

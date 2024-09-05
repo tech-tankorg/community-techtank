@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { rubik } from "@utils/constants/fonts";
+import cx from "classnames";
 
 import "@styles/layout.css";
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={rubik.className}>
+      <body className={cx("layoutFormat", rubik.className)}>
         <NavigationBar />
         {children}
         <Footer />

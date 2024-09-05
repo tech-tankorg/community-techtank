@@ -165,3 +165,31 @@ export const Articles = [
     },
   },
 ];
+
+export const dummyArticle = `Design on the web has changed drastically over the years; So much so that we now have the tools to build on ideas that we once thought were impossible. It's an exciting time to be a front-end developer, and I don't say this lightly! There was a time when structuring layouts on the web was very tedious, and implementing responsive layouts was not even a question in mind. Developers were forced to build multiples website to ensure that desktop and mobile users had a great user experience when visiting a website.
+
+It's important to remember that user experience drives the design of user interfaces, and layout is a critical component of those interfaces. Therefore, as the complexity of those interfaces grows, so do the options for designing layouts for them.
+
+Let's think about the following questions as they relate to responsive layouts:
+
+- How does the layout of a page respond when the size of our viewport -- our canvas in which our website is built -- changes? At smaller screen sizes, are we putting more important information at the top or are we showing a zoomed-out version of the page?
+- What happens to the size of elements on the page with a change in viewport size?
+
+There was a time when questions like the ones above were difficult to answer, but the introduction of the responsive web, allowed us to begin uncovering the answers to those questions.
+
+## A look at where we are
+
+Tools such as media queries, flexbox, and CSS grid allowed developers to reshape layouts on the web to suit the devices of many users. Media queries brought us the ability to query the size of the viewport, thereby allowing us to modify the CSS properties on DOM elements with a change in viewport size. This addition meant that we could now show/hide and even re-order DOM elements based on the viewport size.
+
+Let's imagine that this box is our viewport. As we make the size of this viewport smaller (dragging the slider), we begin to see a layout shift -- Elements that were once in rows are now put into columns, and elements that were once present are now hidden.
+
+## Container queries
+
+Container queries iterate on the idea of micro layouts, as they allow us to set a defined container and have the children query the size of the container. Similar to media queries, container queries allow us to modify the CSS properties on DOM elements, thereby allowing us to show/hide, re-order DOM elements, and modify other properties based on the size of a container. An important distinction to be aware of is that **media queries** allow us to query the size of the viewport, whereas **container queries** allow us to query the size of a defined container.
+
+Container queries move us beyond considering only the viewport, and allow any component or element to respond to a defined container’s width -- Stephanie Eckles.
+
+This solves a unique problem in that container queries allow us to develop components that are intrinsically responsive. This allows us to have confidence that we can build a component once, but use it anywhere. More specifically, a component that is used in the main section of a web page can now be put in a sidebar without adding any additional utility classes that target the component in the sidebar.
+
+Let's check out the example below in which we've defined some components that make use of container queries.
+`;
