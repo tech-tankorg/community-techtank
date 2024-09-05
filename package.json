@@ -9,6 +9,12 @@
     "lint": "next lint",
     "test": "vitest"
   },
+  "keywords": [
+    "Tech Tank",
+    "Community"
+  ],
+  "author": "TechTank, Nonso O.",
+  "license": "MIT",
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.57.0",
@@ -35,10 +41,12 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/browser": "^2.0.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "jsdom": "^25.0.0",
     "typescript": "^5",
+    "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.0.5",
     "zod": "^3.23.8"
   }
