@@ -38,7 +38,7 @@ const Logo = () => {
         <path
           d="M6.5 35.5C8 35.6667 11.5 35.4 13.5 33"
           stroke="white"
-          stroke-width="2"
+          strokeWidth="2"
           stroke-linecap="round"
         />
       </mask>

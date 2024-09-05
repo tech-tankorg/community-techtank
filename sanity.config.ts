@@ -5,6 +5,8 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { markdownSchema } from "sanity-plugin-markdown";
 
+import { cloudinarySchemaPlugin } from "sanity-plugin-cloudinary";
+
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemaTypes";
 import { structure } from "./sanity/structure";
@@ -18,5 +20,6 @@ export default defineConfig({
     structureTool({ structure }),
     visionTool({ defaultApiVersion: apiVersion }),
     markdownSchema(),
+    cloudinarySchemaPlugin(),
   ],
 });
