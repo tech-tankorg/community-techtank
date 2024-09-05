@@ -1,0 +1,17 @@
+.CodeContainer > pre {
+  margin: 1em 0;
+  padding: 1.5em;
+
+  border-radius: var(--border-radius-prmy);
+  overflow-x: scroll;
+
+  max-height: 500px;
+  line-height: 1.1;
+}
+
+.CodeContainer > pre > code {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  font-size: var(--fs-sm-prmy);
+}

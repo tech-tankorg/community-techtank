@@ -1,0 +1,21 @@
+.showMoreBtn {
+  font-size: var(--fs-sm-prmy);
+  font-weight: var(--fw-tri);
+  color: var(--col-text-tri);
+
+  cursor: pointer;
+}
+
+.expandedMenu {
+  margin-top: 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+  .expandedMenu > * {
+    color: var(--col-text-sec) !important;
+  }
+
+  section[data-tag="Note"] > .expandedMenu > * {
+    color: var(--col-text-prmy);
+  }
+}

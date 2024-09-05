@@ -1,0 +1,40 @@
+@layer genericComps {
+  .highlighted,
+  .highlighted-word,
+  .diff {
+    padding: 0.3em 0.7em 0.3em 0;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .highlighted,
+  .highlighted-word {
+    background-color: rgb(101 117 113 / 0.35);
+  }
+
+  .diff {
+    position: relative;
+  }
+
+  .diff:before {
+    position: absolute;
+    top: 10%;
+    padding: 0 0.3em;
+  }
+
+  .diff.add {
+    background-color: rgb(16 185 129 / 0.14);
+  }
+
+  .diff.add:before {
+    content: "+";
+  }
+
+  .diff.remove {
+    background-color: rgb(244 63 94 / 0.14);
+  }
+
+  .diff.remove:before {
+    content: "-";
+  }
+}
