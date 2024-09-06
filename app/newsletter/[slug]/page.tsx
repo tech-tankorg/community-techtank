@@ -3,7 +3,7 @@ import cx from "classnames";
 import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";
-import { getHeaders } from "@lib/tableOfContents";
+import { getHeaders } from "@lib/parsers";
 
 import { dummyArticle } from "@utils/constants/dummyData";
 
