@@ -1,6 +1,6 @@
-import "@testing-library/jest-dom";
-import { describe, beforeEach, expect, it } from "vitest";
-import { render, screen, fireEvent } from "@testing-library/react";
+import React from "react";
+import { describe, beforeEach, expect, it, afterEach } from "vitest";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 
 import Expanded from "./Expanded";
 
@@ -13,6 +13,10 @@ describe("Test func of Expanded Component", () => {
         <ChildComp />
       </Expanded>
     );
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   it("should show the show more btn when rendered", () => {

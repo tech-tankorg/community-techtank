@@ -12,7 +12,7 @@ interface Props {
   code: string;
   lang: string;
 }
-const Code_highlight = async ({ code, lang }: Props) => {
+const CodeHighlight = async ({ code, lang }: Props) => {
   const highlighted_code = await codeToHtml(code.trim(), {
     lang,
     theme: "material-theme-darker",
@@ -31,4 +31,4 @@ const Code_highlight = async ({ code, lang }: Props) => {
   );
 };
 
-export default Code_highlight;
+export default CodeHighlight;

@@ -8,7 +8,7 @@ const Images = ({ childNodes }: Props) => {
   const { src, alt } = childNodes;
   return (
     <Image
-      src={""}
+      src={src}
       alt={alt}
       width={500}
       height={400}
