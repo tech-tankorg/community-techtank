@@ -7,12 +7,46 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-unused-vars": "error",
+    "no-unused-vars": [
+      "error",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": false,
+        "vars": "all",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "block-scoped-var": "error",
+    "default-case-last": "error",
+    "eqeqeq": "error",
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-return-assign": "error",
+    "no-useless-concat": "error",
+    "no-useless-return": "warn",
+    "prefer-const": "warn",
+    "import/first": "error",
+    "import/newline-after-import": "warn",
+    "import/no-cycle": "error",
+    "react/hook-use-state": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-pascal-case": "warn",
+    "no-unneeded-ternary": "error",
+    "prefer-object-spread": "warn",
+    "no-undef-init": "warn",
     "@typescript-eslint/naming-convention": [
       "error",
       {
         "selector": "variableLike",
-        "format": ["snake_case", "camelCase", "UPPER_CASE"]
+        "format": ["snake_case", "PascalCase", "UPPER_CASE"]
+      }
+    ],
+    "max-classes-per-file": ["error", 1],
+    "no-empty-function": [
+      "error",
+      {
+        "allow": ["arrowFunctions", "functions", "methods"]
       }
     ]
   }
