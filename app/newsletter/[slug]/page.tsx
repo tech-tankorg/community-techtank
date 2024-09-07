@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "@styles/pages/Newsletter.module.css";
 import cx from "classnames";
 import { Suspense } from "react";
@@ -7,11 +8,7 @@ import { getHeaders } from "@lib/parsers";
 
 import { dummyArticle } from "@utils/constants/dummyData";
 
-interface Props {
-  params: { slug: string };
-}
-
-const Newsletter = ({ params }: Props) => {
+const Newsletter = () => {
   const headers = getHeaders(dummyArticle);
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>

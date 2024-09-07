@@ -39,7 +39,7 @@
       "error",
       {
         "selector": "variableLike",
-        "format": ["snake_case", "PascalCase", "UPPER_CASE"]
+        "format": ["snake_case", "PascalCase", "UPPER_CASE", "camelCase"]
       }
     ],
     "max-classes-per-file": ["error", 1],
