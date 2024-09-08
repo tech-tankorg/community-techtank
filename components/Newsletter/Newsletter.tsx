@@ -26,7 +26,7 @@ const Newsletter = ({
         <div className={styles.articleMetadata}>
           <p
             className={styles.categoryTitle}
-            date-feature={String(featureArticle)}
+            data-feature={String(featureArticle)}
           >
             {featureArticle ? "Inside the tank" : categoryTitle}
           </p>

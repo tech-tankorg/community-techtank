@@ -24,7 +24,7 @@
   font-weight: var(--fw-sec);
 }
 
-.categoryTitle[date-feature="true"] {
+.categoryTitle[data-feature="true"] {
   text-transform: uppercase;
 }
 

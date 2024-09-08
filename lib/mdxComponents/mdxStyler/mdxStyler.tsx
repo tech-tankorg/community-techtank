@@ -1,3 +1,4 @@
+import React from "react";
 import * as mdx from "@mdx-js/react";
 import Paragraph from "../elements/Paragragh";
 import Anchor from "../elements/Anchor";
