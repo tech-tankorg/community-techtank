@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@styles/pages/Newsletter.module.css";
-import cx from "classnames";
+import cx from "clsx";
 import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";

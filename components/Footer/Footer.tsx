@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames";
+import cx from "clsx";
 import styles from "./Footer.module.css";
 
 import Logo from "../../public/Assets/svgs/logo";

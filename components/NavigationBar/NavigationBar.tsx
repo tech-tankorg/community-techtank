@@ -1,5 +1,6 @@
+import React from "react";
 import styles from "./NavigationBar.module.css";
-import cx from "classnames";
+import cx from "clsx";
 
 import Logo from "../../public/Assets/svgs/logo";
 

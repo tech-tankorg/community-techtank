@@ -1,5 +1,6 @@
+import React from "react";
 import styles from "@styles/pages/Home.module.css";
-import cx from "classnames";
+import cx from "clsx";
 import Newsletter from "@components/Newsletter/Newsletter";
 
 import { Articles } from "@utils/constants/dummyData";

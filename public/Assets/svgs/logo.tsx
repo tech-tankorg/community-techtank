@@ -39,7 +39,7 @@ const Logo = () => {
           d="M6.5 35.5C8 35.6667 11.5 35.4 13.5 33"
           stroke="white"
           strokeWidth="2"
-          stroke-linecap="round"
+          strokeLinecap="round"
         />
       </mask>
       <g mask="url(#mask0_2_81)">
