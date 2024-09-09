@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { rubik } from "@utils/constants/fonts";
-import cx from "classnames";
+import cx from "clsx";
 
 import "@styles/layout.css";
 
