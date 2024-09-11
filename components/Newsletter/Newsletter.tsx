@@ -1,24 +1,14 @@
 import React from "react";
 import styles from "./Newsletter.module.css";
+import { Newsletter } from "@utils/types/project-types";
+import Image from "next/image";
 
-interface Props {
-  featureArticle?: boolean;
-  categoryTitle: string;
-  articleTitle: string;
-  articleDescription: string;
-  author: {
-    name: string;
-    title: string;
-  };
-}
+// interface Props {
+//   newsletter: Newsletter;
+// }
 
-const Newsletter = ({
-  featureArticle = false,
-  categoryTitle,
-  articleTitle,
-  articleDescription,
-  author,
-}: Props) => {
+const NewsletterPage = ({ newsletter }) => {
+  console.log("newsletter: ", newsletter);
   return (
     <section className={styles.containerWrapper}>
       <article className={styles.mainWrapper}>
@@ -26,19 +16,29 @@ const Newsletter = ({
         <div className={styles.articleMetadata}>
           <p
             className={styles.categoryTitle}
-            data-feature={String(featureArticle)}
+            data-feature={String(newsletter.featured_content)}
           >
-            {featureArticle ? "Inside the tank" : categoryTitle}
+            {/* TODO: To show category title */}
+            {newsletter.featured_content ? "Inside the tank" : "Newsletter"}
           </p>
-          <h3 className={styles.articleTitle}>{articleTitle}</h3>
-          <p className={styles.articleDescription}>{articleDescription}</p>
+          <h3 className={styles.articleTitle}>{newsletter.title}</h3>
+          <p className={styles.articleDescription}>{newsletter.content}</p>
 
-          {!featureArticle && (
+          {!newsletter.featured_content && (
             <section className={styles.author}>
-              <div className={styles.authorBackground}></div>
+              <Image
+                src={newsletter.authors[0].url}
+                alt={`author image`}
+                className={styles.authorBackground}
+              />
+              // TODO: if multiple authors, show first author & 'et al'
               <div>
-                <p className={styles.authorItems}>{author.name}</p>
-                <p className={styles.authorItems}>{author.title}</p>
+                <p className={styles.authorItems}>
+                  {newsletter.authors[0].name}
+                </p>
+                <p className={styles.authorItems}>
+                  {newsletter.authors[0].author_title}
+                </p>
               </div>
             </section>
           )}
@@ -48,4 +48,4 @@ const Newsletter = ({
   );
 };
 
-export default Newsletter;
+export default NewsletterPage;

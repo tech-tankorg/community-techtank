@@ -32,6 +32,7 @@ const Newsletter = () => {
           ))}
         </section>
         <section className={styles.metaData}>
+          // TODO: show all authors
           <div className={styles.author}>
             <span className={styles.authorImg}></span>
             <span className={styles.authorName}>Julie Coden</span>
