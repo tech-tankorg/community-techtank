@@ -2,7 +2,7 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId } from "../env";
 
-import { Newsletter_Schema } from "@utils/types/zod-schema-types";
+import { Newsletters_Schema } from "@utils/types/zod-schema-types";
 
 export const client = createClient({
   projectId,
@@ -28,5 +28,5 @@ export const getAllNewsletters = async () => {
 
   const newsletters = await client.fetch(getAllNewslettersQuery);
 
-  return Newsletter_Schema.parse(newsletters);
+  return Newsletters_Schema.parse(newsletters);
 };

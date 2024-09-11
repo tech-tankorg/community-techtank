@@ -3,11 +3,11 @@ import styles from "./Newsletter.module.css";
 import { Newsletter } from "@utils/types/project-types";
 import Image from "next/image";
 
-// interface Props {
-//   newsletter: Newsletter;
-// }
+interface Props {
+  newsletter: Newsletter;
+}
 
-const NewsletterPage = ({ newsletter }) => {
+const NewsletterPage = ({ newsletter }: Props) => {
   console.log("newsletter: ", newsletter);
   return (
     <section className={styles.containerWrapper}>
@@ -27,7 +27,7 @@ const NewsletterPage = ({ newsletter }) => {
           {!newsletter.featured_content && (
             <section className={styles.author}>
               <Image
-                src={newsletter.authors[0].url}
+                src={newsletter.authors[0].author_image.url}
                 alt={`author image`}
                 className={styles.authorBackground}
               />

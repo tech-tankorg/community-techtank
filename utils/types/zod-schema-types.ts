@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const Newsletter_Schema = z.array(
+export const Newsletters_Schema = z.array(
   z.object({
     title: z.string(),
     scheduled_date: z.string(),
