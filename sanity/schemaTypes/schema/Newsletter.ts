@@ -1,8 +1,8 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
 
 export const Newsletter: SchemaTypeDefinition = {
-  name: "letter",
-  title: `Nemo's Newsletter`,
+  name: "newsletter",
+  title: `Newsletter`,
   type: "document",
   fields: [
     {

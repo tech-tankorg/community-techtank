@@ -1,33 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "@styles/pages/Home.module.css";
 import cx from "clsx";
 import Newsletter from "@components/Newsletter/Newsletter";
+// import { Articles } from "@utils/constants/dummyData";
+import { client, getAllNewsletters } from "../sanity/lib/client";
 
-import { Articles } from "@utils/constants/dummyData";
-
-const Home = () => {
+const Home = async () => {
+  const newsletters = await getAllNewsletters();
   return (
-    <main className={cx("mainContent", styles.mainWrapper)}>
+    <main className={cx("mainContent")}>
+      {/*<div>{JSON.stringify(newsletters)}</div>*/}
       <Newsletter
-        categoryTitle={Articles[0].categoryTitle}
-        articleTitle={Articles[0].articleTitle}
-        articleDescription={Articles[0].articleDescription}
-        author={Articles[0].author}
+        categoryTitle={"Feature"}
+        articleTitle={newsletters[0].title}
+        articleDescription={newsletters[0].content}
+        author={{ name: newsletters[0].authorNames[0], title: "Author" }}
         featureArticle
       />
       <h2 className={styles.pageHeader}>Past newsletters</h2>
       <p className={styles.pageSubHeader}>What have we been up too?</p>
 
       <section className={styles.newsletterWrapper}>
-        {Articles.map((article) => (
-          <Newsletter
-            key={article.id}
-            categoryTitle={article.categoryTitle}
-            articleTitle={article.articleTitle}
-            articleDescription={article.articleDescription}
-            author={article.author}
-          />
-        ))}
+        {/*{Articles.map((article) => (*/}
+        {/*    <Newsletter*/}
+        {/*        key={article.id}*/}
+        {/*        categoryTitle={article.categoryTitle}*/}
+        {/*        articleTitle={article.articleTitle}*/}
+        {/*        articleDescription={article.articleDescription}*/}
+        {/*        author={article.author}*/}
+        {/*    />*/}
+        {/*))}*/}
       </section>
     </main>
   );
