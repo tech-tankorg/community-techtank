@@ -12,6 +12,12 @@ export const Newsletter: SchemaTypeDefinition = {
       description: "Provide a title the newsletter -- ie/ July 2023 Newsletter",
     },
     {
+      name: "description",
+      title: "Description",
+      type: "string",
+      description: "Provide a description for the newsletter",
+    },
+    {
       name: "scheduled_date",
       description: "When is the Newsletter doing to be released?",
       title: "Schedule Newsletter",

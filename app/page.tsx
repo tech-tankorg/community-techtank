@@ -3,7 +3,7 @@ import styles from "@styles/pages/Home.module.css";
 import cx from "clsx";
 import NewsletterPage from "@components/Newsletter/Newsletter";
 // import { Articles } from "@utils/constants/dummyData";
-import { client, getAllNewsletters } from "../sanity/lib/client";
+import { getAllNewsletters } from "./server-helpers/server-helpers";
 
 const Home = async () => {
   const newsletters = await getAllNewsletters();
