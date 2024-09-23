@@ -2,13 +2,13 @@ import React from "react";
 import styles from "./Newsletter.module.css";
 import { Newsletter } from "@utils/types/project-types";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   newsletter: Newsletter;
 }
 
 const NewsletterPage = ({ newsletter }: Props) => {
-  console.log("newsletter: ", newsletter);
   return (
     <section className={styles.containerWrapper}>
       <article className={styles.mainWrapper}>
@@ -18,10 +18,14 @@ const NewsletterPage = ({ newsletter }: Props) => {
             className={styles.categoryTitle}
             data-feature={String(newsletter.featured_content)}
           >
-            {/* TODO: To show category title */}
-            {newsletter.featured_content ? "Inside the tank" : "Newsletter"}
+            {newsletter.featured_content
+              ? "Inside the tank"
+              : newsletter.category}
           </p>
-          <h3 className={styles.articleTitle}>{newsletter.title}</h3>
+          <Link href={`/newsletter/${newsletter.slug}`}>
+            <h3 className={styles.articleTitle}>{newsletter.title}</h3>
+          </Link>
+
           <p className={styles.articleDescription}>{newsletter.content}</p>
 
           {!newsletter.featured_content && (
@@ -30,8 +34,10 @@ const NewsletterPage = ({ newsletter }: Props) => {
                 src={newsletter.authors[0].author_image.url}
                 alt={`author image`}
                 className={styles.authorBackground}
+                width={newsletter.authors[0].author_image.width}
+                height={newsletter.authors[0].author_image.height}
               />
-              // TODO: if multiple authors, show first author & 'et al'
+              {/* // TODO: if multiple authors, show first author & 'et al' */}
               <div>
                 <p className={styles.authorItems}>
                   {newsletter.authors[0].name}

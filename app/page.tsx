@@ -1,30 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "@styles/pages/Home.module.css";
 import cx from "clsx";
 import NewsletterPage from "@components/Newsletter/Newsletter";
-// import { Articles } from "@utils/constants/dummyData";
-import { getAllNewsletters } from "./server-helpers/server-helpers";
+import {
+  getAllNewsletters,
+  getFeaturedNewsletter,
+} from "./server-helpers/server-helpers";
 
 const Home = async () => {
+  const featuredNewsletter = await getFeaturedNewsletter();
   const newsletters = await getAllNewsletters();
-  console.log({ newsletters });
+
   return (
     <main className={cx("mainContent")}>
-      {/*<div>{JSON.stringify(newsletters)}</div>*/}
-      <NewsletterPage newsletter={newsletters[0]} />
+      <NewsletterPage newsletter={featuredNewsletter} />
+
       <h2 className={styles.pageHeader}>Past newsletters</h2>
       <p className={styles.pageSubHeader}>What have we been up too?</p>
 
       <section className={styles.newsletterWrapper}>
-        {/*{Articles.map((article) => (*/}
-        {/*    <Newsletter*/}
-        {/*        key={article.id}*/}
-        {/*        categoryTitle={article.categoryTitle}*/}
-        {/*        articleTitle={article.articleTitle}*/}
-        {/*        articleDescription={article.articleDescription}*/}
-        {/*        author={article.author}*/}
-        {/*    />*/}
-        {/*))}*/}
+        {newsletters.map((newsletter) => (
+          <NewsletterPage key={newsletter.slug} newsletter={newsletter} />
+        ))}
       </section>
     </main>
   );
