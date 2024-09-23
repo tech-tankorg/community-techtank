@@ -44,6 +44,13 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "boolean",
     },
     {
+      name: "category",
+      title: "Category",
+      description: "Select the category",
+      type: "reference",
+      to: [{ type: "category_type" }],
+    },
+    {
       name: "authors",
       title: "Authors",
       description: "Select the authors",
