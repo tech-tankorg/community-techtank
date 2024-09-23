@@ -1,7 +1,7 @@
 import { type SchemaTypeDefinition } from "sanity";
-import { Newsletter } from "./schema/Newsletter";
-import { Author } from "./schema/Author";
+
+import * as Schemas from "./schema";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [Newsletter, Author],
+  types: [Schemas.Author, Schemas.CategoryType, Schemas.Newsletter],
 };

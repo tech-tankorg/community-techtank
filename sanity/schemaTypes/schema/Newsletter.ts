@@ -1,8 +1,8 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
 
 export const Newsletter: SchemaTypeDefinition = {
-  name: "letter",
-  title: `Nemo's Newsletter`,
+  name: "newsletter",
+  title: `Newsletter`,
   type: "document",
   fields: [
     {
@@ -10,6 +10,12 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Title",
       type: "string",
       description: "Provide a title the newsletter -- ie/ July 2023 Newsletter",
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
+      description: "Provide a description for the newsletter",
     },
     {
       name: "scheduled_date",
@@ -36,6 +42,13 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Featured Content",
       description: "Is this newsletter going to be a featured banner?",
       type: "boolean",
+    },
+    {
+      name: "category",
+      title: "Category",
+      description: "Select the category",
+      type: "reference",
+      to: [{ type: "category_type" }],
     },
     {
       name: "authors",
