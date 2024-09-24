@@ -1,4 +1,5 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
+import { MARKDOWN_TEMPLATE } from "@sanity/constants/templates/content";
 
 export const Newsletter: SchemaTypeDefinition = {
   name: "newsletter",
@@ -61,6 +62,7 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "markdown",
       description: "Newsletter content goes here",
       name: "content",
+      initialValue: MARKDOWN_TEMPLATE,
     },
   ],
 };
