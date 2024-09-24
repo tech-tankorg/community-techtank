@@ -12,7 +12,6 @@ const NavigationBar = () => {
         <Logo />
       </Link>
       <ul className={styles.navItems}>
-        <li className={styles.navItems_item}>Home</li>
         <li className={styles.navItems_item}>Blog</li>
         <li className={styles.navItems_item}>Newsletter</li>
       </ul>
