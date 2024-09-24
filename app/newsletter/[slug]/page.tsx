@@ -4,9 +4,7 @@ import cx from "clsx";
 import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";
-import { getHeaders } from "@lib/parsers";
 
-import { dummyArticle } from "@utils/constants/dummyData";
 import { getNewsletter } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
@@ -15,8 +13,8 @@ interface Params {
 }
 
 const Newsletter = async ({ params }: Params) => {
-  const newsletter = await getNewsletter(params.slug);
-  const headers = getHeaders(dummyArticle);
+  const { newsletter, headers } = await getNewsletter(params.slug);
+
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>
       <article className={styles.content}>
@@ -24,7 +22,7 @@ const Newsletter = async ({ params }: Params) => {
         <h1 className={styles.articleTitle}>{newsletter.title}</h1>
         <Suspense fallback={"loading..."}>
           <MDXRemote
-            source={newsletter.content || ""}
+            source={newsletter.content ?? ""}
             components={COMPONENTS}
           />
         </Suspense>
