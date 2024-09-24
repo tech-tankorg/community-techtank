@@ -2,11 +2,11 @@ import { createClient } from "next-sanity";
 
 import { apiVersion, dataset, projectId } from "../env";
 
-import { Newsletters_Schema } from "@utils/types/zod-schema-types";
+import { IS_PROD } from "@utils/constants";
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  useCdn: IS_PROD,
 });

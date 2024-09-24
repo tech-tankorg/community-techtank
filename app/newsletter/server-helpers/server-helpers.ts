@@ -1,8 +1,12 @@
 import { Newsletter_Schema } from "@utils/types/zod-schema-types";
 import { client } from "@sanity/lib/client";
+import { getHeaders } from "@lib/parsers";
+import { notFound } from "next/navigation";
+import { IS_PROD } from "@utils/constants";
 
 export const getNewsletter = async (slug: string) => {
-  const query = `*[_type == "newsletter" && slug.current == "${slug}"][0]{
+  try {
+    const query = `*[_type == "newsletter" && slug.current == "${slug}"][0]{
             title,
             scheduled_date,
             "slug": slug.current,
@@ -18,7 +22,18 @@ export const getNewsletter = async (slug: string) => {
         }
         `;
 
-  const newsletter = await client.fetch(query);
+    const newsletterPrep = await client.fetch(
+      query,
+      {},
+      {
+        next: { revalidate: IS_PROD ? 86400 : 0 },
+      }
+    );
 
-  return Newsletter_Schema.parse(newsletter);
+    const newsletter = Newsletter_Schema.parse(newsletterPrep);
+
+    return { newsletter, headers: getHeaders(newsletter.content ?? "") };
+  } catch {
+    notFound();
+  }
 };
