@@ -1,8 +1,9 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
+import { MARKDOWN_TEMPLATE } from "@sanity/constants/templates/content";
 
 export const Newsletter: SchemaTypeDefinition = {
-  name: "letter",
-  title: `Nemo's Newsletter`,
+  name: "newsletter",
+  title: `Newsletter`,
   type: "document",
   fields: [
     {
@@ -10,6 +11,12 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Title",
       type: "string",
       description: "Provide a title the newsletter -- ie/ July 2023 Newsletter",
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
+      description: "Provide a description for the newsletter",
     },
     {
       name: "scheduled_date",
@@ -38,6 +45,13 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "boolean",
     },
     {
+      name: "category",
+      title: "Category",
+      description: "Select the category",
+      type: "reference",
+      to: [{ type: "category_type" }],
+    },
+    {
       name: "authors",
       title: "Authors",
       description: "Select the authors",
@@ -48,6 +62,7 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "markdown",
       description: "Newsletter content goes here",
       name: "content",
+      initialValue: MARKDOWN_TEMPLATE,
     },
   ],
 };
