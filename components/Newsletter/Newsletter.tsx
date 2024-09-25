@@ -12,7 +12,15 @@ const NewsletterPage = ({ newsletter }: Props) => {
   return (
     <section className={styles.containerWrapper}>
       <article className={styles.mainWrapper}>
-        <div className={styles.background}></div>
+        <div className={styles.newsletterBackgroundWrapper}>
+          <Image
+            src={newsletter.newsletter_image.url}
+            alt="text"
+            objectFit="cover"
+            fill={true}
+            className={styles.newsletterImage}
+          />
+        </div>
         <div className={styles.articleMetadata}>
           <p
             className={styles.categoryTitle}
@@ -22,7 +30,7 @@ const NewsletterPage = ({ newsletter }: Props) => {
               ? "Inside the tank"
               : newsletter.category}
           </p>
-          <Link href={`/newsletter/${newsletter.slug}`}>
+          <Link href={`/newsletter/${newsletter.slug}`} className="genericLink">
             <h3 className={styles.articleTitle}>{newsletter.title}</h3>
           </Link>
 

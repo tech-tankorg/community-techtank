@@ -23,6 +23,13 @@ export const Newsletter_Schema = z.object({
   authors: z.array(Author_Schema),
   content: z.string().optional(),
   category: z.string({ message: "The category field is required" }),
+  newsletter_image: z.object({
+    url: z.string(),
+    width: z.number(),
+    height: z.number(),
+    format: z.string(),
+    resource_type: z.string(),
+  }),
 });
 
 export const Newsletters_Schema = z.array(Newsletter_Schema);

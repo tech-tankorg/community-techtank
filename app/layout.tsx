@@ -4,6 +4,7 @@ import { rubik } from "@utils/constants/fonts";
 import cx from "clsx";
 
 import "@styles/layout.css";
+import "@styles/genericStyles.css";
 
 import NavigationBar from "@components/NavigationBar/NavigationBar";
 import Footer from "@components/Footer/Footer";

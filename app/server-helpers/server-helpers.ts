@@ -15,7 +15,8 @@ export const getAllNewsletters = async () => {
                 author_title,
                 author_image{url, width, height, format, resource_type}
             },
-            description
+            description,
+            newsletter_image{url, width, height, format, resource_type}
         }`;
 
   const newsletters = await client.fetch(
@@ -41,7 +42,8 @@ export const getFeaturedNewsletter = async () => {
                 author_title,
                 author_image{url, width, height, format, resource_type}
             },
-            description
+            description,
+            newsletter_image{url, width, height, format, resource_type}
         }`;
 
   const sanityResult = await client.fetch(
