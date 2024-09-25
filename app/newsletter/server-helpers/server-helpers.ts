@@ -18,7 +18,8 @@ export const getNewsletter = async (slug: string) => {
                 author_image{url, width, height, format, resource_type}
             },
             content,
-            description
+            description,
+            newsletter_image{url, width, height, format, resource_type}
         }
         `;
 

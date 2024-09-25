@@ -1,0 +1,7 @@
+@layer genericComponents {
+  .genericLink,
+  .genericLink:visited {
+    text-decoration: none;
+    color: initial;
+  }
+}
