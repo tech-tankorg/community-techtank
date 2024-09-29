@@ -1,9 +1,14 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import styles from "./styles.module.css";
 
 import { FiAlertTriangle, FiAlertCircle } from "react-icons/fi";
 import { HiInformationCircle } from "react-icons/hi";
-import { asideMetaTag } from "../../utils/types/libTypes";
+
+enum asideMetaTag {
+  Note = "Note",
+  Alert = "Alert",
+  FYI = "FYI",
+}
 
 interface Props {
   title: string;
