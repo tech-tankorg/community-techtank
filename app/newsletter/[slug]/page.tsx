@@ -4,13 +4,23 @@ import cx from "clsx";
 import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";
-
+import { generateMetadataObject } from "@utils/constants";
 import { getNewsletter } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
 interface Params {
   params: { slug: string };
 }
+export const generateMetadata = async ({ params }: Params) => {
+  const { newsletter } = await getNewsletter(params.slug);
+
+  const metaData = generateMetadataObject(
+    newsletter.title,
+    newsletter.description
+  );
+
+  return metaData;
+};
 
 const Newsletter = async ({ params }: Params) => {
   const { newsletter, headers } = await getNewsletter(params.slug);
