@@ -29,7 +29,3 @@ jobs:
         run: |
           npm run lint
           npm run ci:test
-
-      - name: Build
-        run: |
-          npm run build
