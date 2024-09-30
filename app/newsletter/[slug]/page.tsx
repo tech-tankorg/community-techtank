@@ -4,19 +4,37 @@ import cx from "clsx";
 import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";
-import { getHeaders } from "@lib/parsers";
+import { generateMetadataObject } from "@utils/constants";
+import { getNewsletter } from "../server-helpers/server-helpers";
+import Image from "next/image";
 
-import { dummyArticle } from "@utils/constants/dummyData";
+interface Params {
+  params: { slug: string };
+}
+export const generateMetadata = async ({ params }: Params) => {
+  const { newsletter } = await getNewsletter(params.slug);
 
-const Newsletter = () => {
-  const headers = getHeaders(dummyArticle);
+  const metaData = generateMetadataObject(
+    newsletter.title,
+    newsletter.description
+  );
+
+  return metaData;
+};
+
+const Newsletter = async ({ params }: Params) => {
+  const { newsletter, headers } = await getNewsletter(params.slug);
+
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>
       <article className={styles.content}>
-        <p className={styles.articleDate}>Jun 18th, 2024</p>
-        <h1 className={styles.articleTitle}>June Newsletter 2024</h1>
+        <p className={styles.articleDate}>{newsletter.scheduled_date}</p>
+        <h1 className={styles.articleTitle}>{newsletter.title}</h1>
         <Suspense fallback={"loading..."}>
-          <MDXRemote source={dummyArticle} components={COMPONENTS} />
+          <MDXRemote
+            source={newsletter.content ?? ""}
+            components={COMPONENTS}
+          />
         </Suspense>
         <section className={styles.tableOfContents}>
           <p className={styles.tableOfContents__Title}>On this page</p>
@@ -32,10 +50,20 @@ const Newsletter = () => {
           ))}
         </section>
         <section className={styles.metaData}>
-          <div className={styles.author}>
-            <span className={styles.authorImg}></span>
-            <span className={styles.authorName}>Julie Coden</span>
-          </div>
+          {newsletter.authors.map((author, index) => {
+            return (
+              <div key={index} className={styles.author}>
+                <Image
+                  src={author.author_image.url}
+                  alt={"Image of author"}
+                  width={author.author_image.width}
+                  height={author.author_image.height}
+                  className={styles.authorImg}
+                />
+                <span className={styles.authorName}>{author.name}</span>
+              </div>
+            );
+          })}
         </section>
       </article>
     </main>

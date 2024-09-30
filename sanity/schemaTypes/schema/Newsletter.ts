@@ -1,8 +1,9 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
+import { MARKDOWN_TEMPLATE } from "@sanity/constants/templates/content";
 
 export const Newsletter: SchemaTypeDefinition = {
-  name: "letter",
-  title: `Nemo's Newsletter`,
+  name: "newsletter",
+  title: `Newsletter`,
   type: "document",
   fields: [
     {
@@ -10,12 +11,21 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Title",
       type: "string",
       description: "Provide a title the newsletter -- ie/ July 2023 Newsletter",
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "string",
+      description: "Provide a description for the newsletter",
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "scheduled_date",
       description: "When is the Newsletter doing to be released?",
       title: "Schedule Newsletter",
       type: "date",
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -38,16 +48,34 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "boolean",
     },
     {
+      name: "category",
+      title: "Category",
+      description: "Select the category",
+      type: "reference",
+      to: [{ type: "category_type" }],
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
       name: "authors",
       title: "Authors",
       description: "Select the authors",
       type: "array",
       of: [{ type: "reference", to: [{ type: "author" }] }],
+      validation: (Rule: Rule) => Rule.required(),
+    },
+    {
+      type: "cloudinary.asset",
+      name: "newsletter_image",
+      description:
+        "This will act as the newsletter image for SEO and header images.",
+      validation: (Rule: Rule) => Rule.required(),
     },
     {
       type: "markdown",
       description: "Newsletter content goes here",
       name: "content",
+      initialValue: MARKDOWN_TEMPLATE,
+      validation: (Rule: Rule) => Rule.required(),
     },
   ],
 };
