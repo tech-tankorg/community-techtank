@@ -20,9 +20,12 @@ export const Author: SchemaTypeDefinition = {
       validation: (Rule: Rule) => Rule.required(),
     },
     {
-      type: "cloudinary.asset",
       name: "author_image",
+      title: "Newsletter Image",
       description: "Profile pic of the author",
+      type: "reference",
+      to: [{ type: "cloud_image" }],
+      validation: (Rule: Rule) => Rule.required(),
     },
   ],
 };

@@ -14,7 +14,7 @@ const NewsletterPage = ({ newsletter }: Props) => {
       <article className={styles.mainWrapper}>
         <div className={styles.newsletterBackgroundWrapper}>
           <Image
-            src={newsletter.newsletter_image.url}
+            src={newsletter.news_image.url}
             alt="text"
             objectFit="cover"
             fill={true}

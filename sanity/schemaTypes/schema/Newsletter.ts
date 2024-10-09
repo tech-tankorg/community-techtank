@@ -25,7 +25,6 @@ export const Newsletter: SchemaTypeDefinition = {
       description: "When is the Newsletter doing to be released?",
       title: "Schedule Newsletter",
       type: "date",
-      validation: (rule) => rule.required().min(new Date().toISOString()),
     },
     {
       name: "slug",
@@ -76,7 +75,6 @@ export const Newsletter: SchemaTypeDefinition = {
       type: "markdown",
       description: "Newsletter content goes here",
       name: "content",
-      title: "Content",
       initialValue: MARKDOWN_TEMPLATE,
       validation: (Rule: Rule) => Rule.required(),
     },
