@@ -22,7 +22,7 @@ export const generateMetadata = async ({ params }: Params) => {
   return metaData;
 };
 
-const Newsletter = async ({ params }: Params) => {
+const NewsletterPage = async ({ params }: Params) => {
   const { newsletter, headers } = await getNewsletter(params.slug);
 
   return (
@@ -70,4 +70,4 @@ const Newsletter = async ({ params }: Params) => {
   );
 };
 
-export default Newsletter;
+export default NewsletterPage;
