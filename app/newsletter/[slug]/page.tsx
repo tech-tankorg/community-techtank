@@ -16,7 +16,8 @@ export const generateMetadata = async ({ params }: Params) => {
 
   const metaData = generateMetadataObject(
     newsletter.title,
-    newsletter.description
+    newsletter.description,
+    newsletter.news_image.url
   );
 
   return metaData;
