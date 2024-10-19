@@ -8,6 +8,8 @@ import { generateMetadataObject } from "@utils/constants";
 import { getNewsletter } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
+import remarkGfm from "remark-gfm";
+
 interface Params {
   params: { slug: string };
 }
@@ -35,6 +37,7 @@ const NewsletterPage = async ({ params }: Params) => {
           <MDXRemote
             source={newsletter.content ?? ""}
             components={COMPONENTS}
+            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
           />
         </Suspense>
         <section className={styles.tableOfContents}>
