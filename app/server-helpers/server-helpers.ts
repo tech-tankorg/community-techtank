@@ -4,7 +4,7 @@ import groq from "groq";
 import { IS_PROD } from "@utils/constants";
 
 export const getAllNewsletters = async () => {
-  const query = groq`*[_type == "newsletter" && featured_content != true] | order(scheduled_date desc){
+  const query = groq`*[_type == "newsletter"] | order(scheduled_date desc){
             title,
             scheduled_date,
             "slug": slug.current,
