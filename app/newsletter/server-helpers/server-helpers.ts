@@ -15,11 +15,11 @@ export const getNewsletter = async (slug: string) => {
             authors[]->{
                 name,
                 author_title,
-                author_image{url, width, height, format, resource_type}
+                author_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
             },
             content,
             description,
-            newsletter_image{url, width, height, format, resource_type}
+            news_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
         }
         `;
 

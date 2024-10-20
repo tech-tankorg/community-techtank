@@ -4,7 +4,7 @@ import groq from "groq";
 import { IS_PROD } from "@utils/constants";
 
 export const getAllNewsletters = async () => {
-  const query = groq`*[_type == "newsletter" && featured_content != true] | order(scheduled_date desc){
+  const query = groq`*[_type == "newsletter"] | order(scheduled_date desc){
             title,
             scheduled_date,
             "slug": slug.current,
@@ -13,10 +13,10 @@ export const getAllNewsletters = async () => {
             authors[]->{
                 name,
                 author_title,
-                author_image{url, width, height, format, resource_type}
+                author_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
             },
             description,
-            newsletter_image{url, width, height, format, resource_type}
+            news_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
         }`;
 
   const newsletters = await client.fetch(
@@ -40,10 +40,10 @@ export const getFeaturedNewsletter = async () => {
             authors[]->{
                 name,
                 author_title,
-                author_image{url, width, height, format, resource_type}
+                author_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
             },
             description,
-            newsletter_image{url, width, height, format, resource_type}
+            news_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
         }`;
 
   const sanityResult = await client.fetch(

@@ -25,7 +25,6 @@ export const Newsletter: SchemaTypeDefinition = {
       description: "When is the Newsletter doing to be released?",
       title: "Schedule Newsletter",
       type: "date",
-      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "slug",
@@ -46,6 +45,7 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Featured Content",
       description: "Is this newsletter going to be a featured banner?",
       type: "boolean",
+      initialValue: false,
     },
     {
       name: "category",
@@ -64,10 +64,12 @@ export const Newsletter: SchemaTypeDefinition = {
       validation: (Rule: Rule) => Rule.required(),
     },
     {
-      type: "cloudinary.asset",
-      name: "newsletter_image",
+      name: "news_image",
+      title: "Newsletter Image",
       description:
         "This will act as the newsletter image for SEO and header images.",
+      type: "reference",
+      to: [{ type: "cloud_image" }],
       validation: (Rule: Rule) => Rule.required(),
     },
     {

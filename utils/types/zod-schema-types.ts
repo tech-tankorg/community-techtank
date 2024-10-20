@@ -1,15 +1,18 @@
 import { z } from "zod";
 
+const Image_Schema = z.object({
+  url: z.string(),
+  width: z.number(),
+  height: z.number(),
+  name: z.string(),
+  alt_text: z.string(),
+  aspect_ratio: z.string(),
+});
+
 export const Author_Schema = z.object({
   name: z.string(),
   author_title: z.string(),
-  author_image: z.object({
-    url: z.string(),
-    width: z.number(),
-    height: z.number(),
-    format: z.string(),
-    resource_type: z.string(),
-  }),
+  author_image: Image_Schema,
 });
 
 export const Newsletter_Schema = z.object({
@@ -23,13 +26,7 @@ export const Newsletter_Schema = z.object({
   authors: z.array(Author_Schema),
   content: z.string().optional(),
   category: z.string({ message: "The category field is required" }),
-  newsletter_image: z.object({
-    url: z.string(),
-    width: z.number(),
-    height: z.number(),
-    format: z.string(),
-    resource_type: z.string(),
-  }),
+  news_image: Image_Schema,
 });
 
 export const Newsletters_Schema = z.array(Newsletter_Schema);
