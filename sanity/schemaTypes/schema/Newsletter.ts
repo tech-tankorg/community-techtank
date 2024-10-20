@@ -45,6 +45,7 @@ export const Newsletter: SchemaTypeDefinition = {
       title: "Featured Content",
       description: "Is this newsletter going to be a featured banner?",
       type: "boolean",
+      initialValue: false,
     },
     {
       name: "category",

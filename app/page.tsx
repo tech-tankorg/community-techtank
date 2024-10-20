@@ -13,7 +13,7 @@ const Home = async () => {
 
   return (
     <main className={cx("mainContent")}>
-      <NewsletterPage newsletter={featuredNewsletter} />
+      {featuredNewsletter && <NewsletterPage newsletter={featuredNewsletter} />}
 
       <h2 className={styles.pageHeader}>Past newsletters</h2>
       <p className={styles.pageSubHeader}>What have we been up too?</p>

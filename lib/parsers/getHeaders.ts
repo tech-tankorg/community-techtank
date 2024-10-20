@@ -1,5 +1,5 @@
 export const getHeaders = (fileString: string) => {
-  const regex = /#{1}.+\n/g;
+  const regex = /^#{1,6} .+\n/gm;
 
   const headingLst = fileString.match(regex) || [];
 
