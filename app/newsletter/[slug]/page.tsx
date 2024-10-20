@@ -9,6 +9,7 @@ import { getNewsletter } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
 import remarkGfm from "remark-gfm";
+import { format } from "date-fns";
 
 interface Params {
   params: { slug: string };
@@ -28,9 +29,14 @@ export const generateMetadata = async ({ params }: Params) => {
 const NewsletterPage = async ({ params }: Params) => {
   const { newsletter, headers } = await getNewsletter(params.slug);
 
+  const formattedScheduledDate = format(
+    new Date(newsletter.scheduled_date.replace("-", "/")),
+    "MMM do, yyyy"
+  );
+
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>
-      <p className={styles.articleDate}>{newsletter.scheduled_date}</p>
+      <p className={styles.articleDate}>{formattedScheduledDate}</p>
       <h1 className={styles.articleTitle}>{newsletter.title}</h1>
       <article className={styles.contentWrapper}>
         <section className={styles.content}>
