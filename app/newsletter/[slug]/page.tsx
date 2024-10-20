@@ -30,16 +30,35 @@ const NewsletterPage = async ({ params }: Params) => {
 
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>
-      <article className={styles.content}>
-        <p className={styles.articleDate}>{newsletter.scheduled_date}</p>
-        <h1 className={styles.articleTitle}>{newsletter.title}</h1>
-        <Suspense fallback={"loading..."}>
-          <MDXRemote
-            source={newsletter.content ?? ""}
-            components={COMPONENTS}
-            options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-          />
-        </Suspense>
+      <p className={styles.articleDate}>{newsletter.scheduled_date}</p>
+      <h1 className={styles.articleTitle}>{newsletter.title}</h1>
+      <article className={styles.contentWrapper}>
+        <section className={styles.content}>
+          <Suspense fallback={"loading..."}>
+            <MDXRemote
+              source={newsletter.content ?? ""}
+              components={COMPONENTS}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
+          </Suspense>
+          <section className={styles.metaData}>
+            {newsletter.authors.map((author, index) => {
+              return (
+                <div key={index} className={styles.author}>
+                  <Image
+                    src={author.author_image.url}
+                    alt={"Image of author"}
+                    width={author.author_image.width}
+                    height={author.author_image.height}
+                    className={styles.authorImg}
+                  />
+                  <span className={styles.authorName}>{author.name}</span>
+                </div>
+              );
+            })}
+          </section>
+        </section>
+
         <section className={styles.tableOfContents}>
           <p className={styles.tableOfContents__Title}>On this page</p>
           {headers.map((heading, index) => (
@@ -52,22 +71,6 @@ const NewsletterPage = async ({ params }: Params) => {
               {heading.heading}
             </a>
           ))}
-        </section>
-        <section className={styles.metaData}>
-          {newsletter.authors.map((author, index) => {
-            return (
-              <div key={index} className={styles.author}>
-                <Image
-                  src={author.author_image.url}
-                  alt={"Image of author"}
-                  width={author.author_image.width}
-                  height={author.author_image.height}
-                  className={styles.authorImg}
-                />
-                <span className={styles.authorName}>{author.name}</span>
-              </div>
-            );
-          })}
         </section>
       </article>
     </main>
