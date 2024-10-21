@@ -29,4 +29,15 @@ export const Newsletter_Schema = z.object({
   news_image: Image_Schema,
 });
 
+export const NavigationLink_Schema = z.object({
+  name: z.string(),
+  links: z.array(
+    z.object({
+      linkName: z.string(),
+      endpoint: z.union([z.string(), z.null()]),
+      externalUrl: z.union([z.string(), z.null()]),
+    })
+  ),
+});
+
 export const Newsletters_Schema = z.array(Newsletter_Schema);

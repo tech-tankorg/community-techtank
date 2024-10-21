@@ -6,7 +6,6 @@ interface Props {
 }
 const Images = ({ childNodes }: Props) => {
   const { src, alt } = childNodes;
-  console.log("src", src);
   return (
     <Image
       src={src}
