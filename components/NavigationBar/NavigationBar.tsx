@@ -39,7 +39,6 @@ export const getLinks = async () => {
 const NavigationBar = async () => {
   const links = await getLinks();
 
-  console.log(links);
   return (
     <nav className={cx("mainContent", styles.mainWrapper)}>
       <Link href="/">
