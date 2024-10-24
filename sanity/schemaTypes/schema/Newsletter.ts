@@ -48,14 +48,6 @@ export const Newsletter: SchemaTypeDefinition = {
       initialValue: false,
     },
     {
-      name: "category",
-      title: "Category",
-      description: "Select the category",
-      type: "reference",
-      to: [{ type: "category_type" }],
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
       name: "authors",
       title: "Authors",
       description: "Select the authors",
