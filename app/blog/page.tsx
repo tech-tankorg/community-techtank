@@ -20,8 +20,7 @@ const BlogHome = async () => {
         />
       )}
 
-      <h2 className={styles.pageHeader}>Past newsletters</h2>
-      <p className={styles.pageSubHeader}>What have we been up too?</p>
+      <h2 className={styles.pageHeader}>Past Articles</h2>
 
       <section className={styles.newsletterWrapper}>
         {blogs.map((blog) => (

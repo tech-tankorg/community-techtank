@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./content.module.css";
+import styles from "./ContentCard.module.css";
 import type { Newsletter, Blog } from "@utils/types/project-types";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +9,7 @@ interface Props {
   subRoute: string;
 }
 
-const content = ({ content, subRoute }: Props) => {
+const ContentCard = ({ content, subRoute }: Props) => {
   return (
     <section className={styles.containerWrapper}>
       <article className={styles.mainWrapper}>
@@ -27,7 +27,7 @@ const content = ({ content, subRoute }: Props) => {
             className={styles.categoryTitle}
             data-feature={String(content.featured_content)}
           >
-            {content.featured_content ? "Inside the tank" : "newsletter"}
+            {content.featured_content ? "Inside the tank" : content._type}
           </p>
           <Link href={`/${subRoute}/${content.slug}`} className="genericLink">
             <h3 className={styles.articleTitle}>{content.title}</h3>
@@ -59,4 +59,4 @@ const content = ({ content, subRoute }: Props) => {
   );
 };
 
-export default content;
+export default ContentCard;
