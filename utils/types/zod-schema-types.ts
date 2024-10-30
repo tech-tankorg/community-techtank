@@ -25,7 +25,8 @@ export const Newsletter_Schema = z.object({
   description: z.string({ message: "The description field is required" }),
   authors: z.array(Author_Schema),
   content: z.string().optional(),
-  news_image: Image_Schema,
+  category: z.string({ message: "The category field is required" }),
+  seo_image: Image_Schema,
 });
 
 export const NavigationLink_Schema = z.object({
@@ -40,3 +41,18 @@ export const NavigationLink_Schema = z.object({
 });
 
 export const Newsletters_Schema = z.array(Newsletter_Schema);
+
+export const Blog_Schema = z.object({
+  title: z.string(),
+  scheduled_date: z.string({ message: "The schedule_date field is required" }),
+  slug: z.string({ message: "The slug field is required" }),
+  featured_content: z.boolean({
+    message: "The featured_content field is required",
+  }),
+  description: z.string({ message: "The description field is required" }),
+  authors: z.array(Author_Schema),
+  content: z.string().optional(),
+  seo_image: Image_Schema,
+});
+
+export const Blogs_Schema = z.array(Blog_Schema);
