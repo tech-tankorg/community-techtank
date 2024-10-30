@@ -7,6 +7,7 @@ import { IS_PROD } from "@utils/constants";
 export const getNewsletter = async (slug: string) => {
   try {
     const query = `*[_type == "newsletter" && slug.current == "${slug}"][0]{
+            _type,
             title,
             scheduled_date,
             "slug": slug.current,

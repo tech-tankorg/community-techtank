@@ -16,6 +16,7 @@ export const Author_Schema = z.object({
 });
 
 export const Newsletter_Schema = z.object({
+  _type: z.string(),
   title: z.string(),
   scheduled_date: z.string({ message: "The schedule_date field is required" }),
   slug: z.string({ message: "The slug field is required" }),
@@ -43,6 +44,7 @@ export const NavigationLink_Schema = z.object({
 export const Newsletters_Schema = z.array(Newsletter_Schema);
 
 export const Blog_Schema = z.object({
+  _type: z.string(),
   title: z.string(),
   scheduled_date: z.string({ message: "The schedule_date field is required" }),
   slug: z.string({ message: "The slug field is required" }),

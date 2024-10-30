@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 
 export const getAllArticles = async () => {
   const query = groq`*[_type == "blog"] | order(scheduled_date desc){
+            _type,
             title,
             scheduled_date,
             "slug": slug.current,
@@ -35,6 +36,7 @@ export const getAllArticles = async () => {
 
 export const getFeaturedArticles = async () => {
   const query = groq`*[_type == "blog" && featured_content == true] | order(scheduled_date desc){
+            _type,
             title,
             scheduled_date,
             "slug": slug.current,
@@ -64,6 +66,7 @@ export const getFeaturedArticles = async () => {
 export const getArticle = async (slug: string) => {
   try {
     const query = `*[_type == "blog" && slug.current == "${slug}"][0]{
+            _type,
             title,
             scheduled_date,
             "slug": slug.current,

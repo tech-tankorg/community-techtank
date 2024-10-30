@@ -6,9 +6,10 @@ import Link from "next/link";
 
 interface Props {
   content: Newsletter | Blog;
+  subRoute: string;
 }
 
-const content = ({ content }: Props) => {
+const content = ({ content, subRoute }: Props) => {
   return (
     <section className={styles.containerWrapper}>
       <article className={styles.mainWrapper}>
@@ -28,7 +29,7 @@ const content = ({ content }: Props) => {
           >
             {content.featured_content ? "Inside the tank" : "newsletter"}
           </p>
-          <Link href={`/newsletter/${content.slug}`} className="genericLink">
+          <Link href={`/${subRoute}/${content.slug}`} className="genericLink">
             <h3 className={styles.articleTitle}>{content.title}</h3>
           </Link>
 
