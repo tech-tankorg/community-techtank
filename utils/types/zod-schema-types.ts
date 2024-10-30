@@ -26,7 +26,6 @@ export const Newsletter_Schema = z.object({
   description: z.string({ message: "The description field is required" }),
   authors: z.array(Author_Schema),
   content: z.string().optional(),
-  category: z.string({ message: "The category field is required" }),
   seo_image: Image_Schema,
 });
 
