@@ -4,18 +4,21 @@ interface Props {
   childNodes: any;
 }
 
+const parseID = (node: string | string[]) => {
+  const id = Array.isArray(node) ? node.join("") : node;
+
+  return id
+    .toLowerCase()
+    .replace(/:([a-zA-Z0-9_#]+):/, "")
+    .replace(/[^a-z0-9 ]/g, "")
+    .trim()
+    .replace(/[ ]/g, "-");
+};
+
 const HeaderIII = ({ childNodes }: Props) => {
-  return (
-    <h3
-      id={childNodes.children
-        .toLowerCase()
-        .replace(/[^a-z0-9 ]/g, "")
-        .replace(/[ ]/g, "-")
-        .trim()}
-      className={styles.headerIII}
-      {...childNodes}
-    ></h3>
-  );
+  const id = parseID(childNodes.children);
+
+  return <h3 id={id} className={styles.headerIII} {...childNodes} />;
 };
 
 export default HeaderIII;
