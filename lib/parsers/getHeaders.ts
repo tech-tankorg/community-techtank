@@ -4,15 +4,20 @@ export const getHeaders = (fileString: string) => {
   const headingLst = fileString.match(regex) || [];
 
   const formattedHeading = headingLst.map((heading) => {
-    const process = heading.replace(/#/g, "").trim().toLowerCase();
+    const process = heading
+      .replace(/#/g, "")
+      .replace(/:([a-zA-Z0-9_#]+):/g, "")
+      .trim()
+      .toLowerCase();
     const level = heading.match(/#/g)?.length || 1;
 
     return {
       heading: process,
       slug: process
-        .trim()
         .toLowerCase()
+        .replace(/:([a-zA-Z0-9_#]+):/g, "")
         .replace(/[^a-z0-9 ]/g, "")
+        .trim()
         .replace(/[ ]/g, "-"),
       level: level,
     };

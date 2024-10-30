@@ -9,6 +9,7 @@ import { getNewsletter } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
 import remarkGfm from "remark-gfm";
+import emoji from "remark-emoji";
 import { format } from "date-fns";
 
 interface Params {
@@ -44,7 +45,11 @@ const NewsletterPage = async ({ params }: Params) => {
             <MDXRemote
               source={newsletter.content ?? ""}
               components={COMPONENTS}
-              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [[remarkGfm, { singleTilde: false }], emoji],
+                },
+              }}
             />
           </Suspense>
           <section className={styles.metaData}>
