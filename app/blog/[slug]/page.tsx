@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { COMPONENTS } from "@lib/mdxComponents";
 import { generateMetadataObject } from "@utils/constants";
-import { getNewsletter } from "../server-helpers/server-helpers";
+import { getArticle } from "../server-helpers/server-helpers";
 import Image from "next/image";
 
 import remarkGfm from "remark-gfm";
@@ -16,34 +16,34 @@ interface Params {
   params: { slug: string };
 }
 export const generateMetadata = async ({ params }: Params) => {
-  const { newsletter } = await getNewsletter(params.slug);
+  const { blog } = await getArticle(params.slug);
 
   const metaData = generateMetadataObject(
-    newsletter.title,
-    newsletter.description,
-    newsletter.seo_image.url
+    blog.title,
+    blog.description,
+    blog.seo_image.url
   );
 
   return metaData;
 };
 
 const NewsletterPage = async ({ params }: Params) => {
-  const { newsletter, headers } = await getNewsletter(params.slug);
+  const { blog, headers } = await getArticle(params.slug);
 
   const formattedScheduledDate = format(
-    new Date(newsletter.scheduled_date.replace("-", "/")),
+    new Date(blog.scheduled_date.replace("-", "/")),
     "MMM do, yyyy"
   );
 
   return (
     <main className={cx("mainContent", styles.mainWrapper)}>
       <p className={styles.articleDate}>{formattedScheduledDate}</p>
-      <h1 className={styles.articleTitle}>{newsletter.title}</h1>
+      <h1 className={styles.articleTitle}>{blog.title}</h1>
       <article className={styles.contentWrapper}>
         <section className={styles.content}>
           <Suspense fallback={"loading..."}>
             <MDXRemote
-              source={newsletter.content ?? ""}
+              source={blog.content ?? ""}
               components={COMPONENTS}
               options={{
                 mdxOptions: {
@@ -53,7 +53,7 @@ const NewsletterPage = async ({ params }: Params) => {
             />
           </Suspense>
           <section className={styles.metaData}>
-            {newsletter.authors.map((author, index) => {
+            {blog.authors.map((author, index) => {
               return (
                 <div key={index} className={styles.author}>
                   <Image

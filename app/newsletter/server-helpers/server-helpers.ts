@@ -19,7 +19,7 @@ export const getNewsletter = async (slug: string) => {
             },
             content,
             description,
-            news_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
+            seo_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
         }
         `;
 
