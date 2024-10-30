@@ -13,14 +13,19 @@ const BlogHome = async () => {
 
   return (
     <main className={cx("mainContent")}>
-      {featuredArticles && <ContentCard content={featuredArticles} />}
+      {featuredArticles && (
+        <ContentCard
+          content={featuredArticles}
+          subRoute={featuredArticles._type}
+        />
+      )}
 
       <h2 className={styles.pageHeader}>Past newsletters</h2>
       <p className={styles.pageSubHeader}>What have we been up too?</p>
 
       <section className={styles.newsletterWrapper}>
         {blogs.map((blog) => (
-          <ContentCard key={blog.slug} content={blog} />
+          <ContentCard key={blog.slug} content={blog} subRoute={blog._type} />
         ))}
       </section>
     </main>

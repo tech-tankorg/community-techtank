@@ -1,36 +1,36 @@
 import type { SchemaTypeDefinition, Rule } from "sanity";
 import { MARKDOWN_TEMPLATE } from "@sanity/constants/templates/content";
 
-export const Newsletter: SchemaTypeDefinition = {
-  name: "newsletter",
-  title: `Newsletter`,
+export const Blog: SchemaTypeDefinition = {
+  name: "blog",
+  title: `Blog`,
   type: "document",
   fields: [
     {
       name: "title",
       title: "Title",
       type: "string",
-      description: "Provide a title the newsletter -- ie/ July 2023 Newsletter",
+      description: "Provide a title the Blog",
       validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
       type: "string",
-      description: "Provide a description for the newsletter",
+      description: "Provide a description for the Blog",
       validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "scheduled_date",
-      description: "When is the Newsletter doing to be released?",
-      title: "Schedule Newsletter",
+      description: "When is the Blog going to be released?",
+      title: "Schedule Blog",
       type: "date",
     },
     {
       name: "slug",
       title: "Slug",
       description:
-        "This field is for the letter slug. Where is the letter being hosted?",
+        "This field is for the letter slug. Where is the blog being hosted?",
       type: "slug",
       options: {
         source: "title",
