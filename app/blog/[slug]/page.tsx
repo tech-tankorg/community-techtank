@@ -27,7 +27,7 @@ export const generateMetadata = async ({ params }: Params) => {
   return metaData;
 };
 
-const NewsletterPage = async ({ params }: Params) => {
+const BlogPage = async ({ params }: Params) => {
   const { blog, headers } = await getArticle(params.slug);
 
   const formattedScheduledDate = format(
@@ -88,4 +88,4 @@ const NewsletterPage = async ({ params }: Params) => {
   );
 };
 
-export default NewsletterPage;
+export default BlogPage;

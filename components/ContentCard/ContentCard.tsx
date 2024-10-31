@@ -44,9 +44,11 @@ const ContentCard = ({ content, subRoute }: Props) => {
                 width={content.authors[0].author_image.width}
                 height={content.authors[0].author_image.height}
               />
-              {/* // TODO: if multiple authors, show first author & 'et al' */}
               <div>
-                <p className={styles.authorItems}>{content.authors[0].name}</p>
+                <p className={styles.authorItems}>
+                  {content.authors[0].name}
+                  {content.authors.length > 1 && <span> & others</span>}
+                </p>
                 <p className={styles.authorItems}>
                   {content.authors[0].author_title}
                 </p>
