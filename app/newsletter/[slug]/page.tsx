@@ -1,16 +1,9 @@
 import React from "react";
-import styles from "@styles/pages/Newsletter.module.css";
-import cx from "clsx";
-import { Suspense } from "react";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { COMPONENTS } from "@lib/mdxComponents";
 import { generateMetadataObject } from "@utils/constants";
 import { getNewsletter } from "../server-helpers/server-helpers";
-import Image from "next/image";
 
-import remarkGfm from "remark-gfm";
-import emoji from "remark-emoji";
 import { format } from "date-fns";
+import ContentPage from "@components/ContentPage/ContentPage";
 
 interface Params {
   params: { slug: string };
@@ -36,55 +29,11 @@ const NewsletterPage = async ({ params }: Params) => {
   );
 
   return (
-    <main className={cx("mainContent", styles.mainWrapper)}>
-      <p className={styles.articleDate}>{formattedScheduledDate}</p>
-      <h1 className={styles.articleTitle}>{newsletter.title}</h1>
-      <article className={styles.contentWrapper}>
-        <section className={styles.content}>
-          <Suspense fallback={"loading..."}>
-            <MDXRemote
-              source={newsletter.content ?? ""}
-              components={COMPONENTS}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [[remarkGfm, { singleTilde: false }], emoji],
-                },
-              }}
-            />
-          </Suspense>
-          <section className={styles.metaData}>
-            {newsletter.authors.map((author, index) => {
-              return (
-                <div key={index} className={styles.author}>
-                  <Image
-                    src={author.author_image.url}
-                    alt={"Image of author"}
-                    width={author.author_image.width}
-                    height={author.author_image.height}
-                    className={styles.authorImg}
-                  />
-                  <span className={styles.authorName}>{author.name}</span>
-                </div>
-              );
-            })}
-          </section>
-        </section>
-
-        <section className={styles.tableOfContents}>
-          <p className={styles.tableOfContents__Title}>On this page</p>
-          {headers.map((heading, index) => (
-            <a
-              key={index}
-              href={`#${heading.slug}`}
-              className={styles.tableOfContents__topic}
-              data-level={heading.level}
-            >
-              {heading.heading}
-            </a>
-          ))}
-        </section>
-      </article>
-    </main>
+    <ContentPage
+      content={newsletter}
+      headers={headers}
+      date={formattedScheduledDate}
+    />
   );
 };
 
