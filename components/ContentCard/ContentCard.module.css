@@ -61,6 +61,10 @@
   font-size: var(--fs-sm-prmy);
 }
 
+.authorItems > span {
+  font-style: italic;
+}
+
 @container Article (min-width:900px) {
   .mainWrapper {
     flex-direction: row;
