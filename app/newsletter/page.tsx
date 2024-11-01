@@ -5,7 +5,7 @@ import {
 } from "./server-helpers/server-helpers";
 import ContentHomePage from "@components/ContentHomePage/ContentHomePage";
 
-const Home = async () => {
+const NewsletterHome = async () => {
   const featuredNewsletter = await getFeaturedNewsletter();
   const newsletters = await getAllNewsletters();
 
@@ -14,4 +14,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default NewsletterHome;

@@ -1,15 +1,13 @@
-import {
-  Newsletter_Schema,
-  Newsletters_Schema,
-} from "@utils/types/zod-schema-types";
+import { Blogs_Schema, Blog_Schema } from "@utils/types/zod-schema-types";
 import { client } from "@sanity/lib/client";
+import groq from "groq";
+import { IS_PROD } from "@utils/constants";
+
 import { getHeaders } from "@lib/parsers";
 import { notFound } from "next/navigation";
-import { IS_PROD } from "@utils/constants";
-import groq from "groq";
 
-export const getAllNewsletters = async () => {
-  const query = groq`*[_type == "newsletter"] | order(scheduled_date desc){
+export const getAllArticles = async () => {
+  const query = groq`*[_type == "blog"] | order(scheduled_date desc){
             _type,
             title,
             scheduled_date,
@@ -25,7 +23,7 @@ export const getAllNewsletters = async () => {
             seo_image->{name,aspect_ratio,alt_text,"url":cloudinary_image.url,"width":cloudinary_image.width,"height":cloudinary_image.height}
         }`;
 
-  const newsletters = await client.fetch(
+  const blog = await client.fetch(
     query,
     {},
     {
@@ -33,11 +31,11 @@ export const getAllNewsletters = async () => {
     }
   );
 
-  return Newsletters_Schema.parse(newsletters);
+  return Blogs_Schema.parse(blog);
 };
 
-export const getFeaturedNewsletter = async () => {
-  const query = groq`*[_type == "newsletter" && featured_content == true] | order(scheduled_date desc){
+export const getFeaturedArticles = async () => {
+  const query = groq`*[_type == "blog" && featured_content == true] | order(scheduled_date desc){
             _type,
             title,
             scheduled_date,
@@ -60,14 +58,14 @@ export const getFeaturedNewsletter = async () => {
       next: { revalidate: IS_PROD ? 3600 : 0 },
     }
   );
-  const newsletter = Newsletters_Schema.parse(sanityResult);
+  const blog = Blogs_Schema.parse(sanityResult);
 
-  return newsletter[0];
+  return blog[0];
 };
 
-export const getNewsletter = async (slug: string) => {
+export const getArticle = async (slug: string) => {
   try {
-    const query = groq`*[_type == "newsletter" && slug.current == "${slug}"][0]{
+    const query = `*[_type == "blog" && slug.current == "${slug}"][0]{
             _type,
             title,
             scheduled_date,
@@ -85,7 +83,7 @@ export const getNewsletter = async (slug: string) => {
         }
         `;
 
-    const newsletterPrep = await client.fetch(
+    const articlePrep = await client.fetch(
       query,
       {},
       {
@@ -93,9 +91,9 @@ export const getNewsletter = async (slug: string) => {
       }
     );
 
-    const newsletter = Newsletter_Schema.parse(newsletterPrep);
+    const blog = Blog_Schema.parse(articlePrep);
 
-    return { newsletter, headers: getHeaders(newsletter.content ?? "") };
+    return { blog, headers: getHeaders(blog.content ?? "") };
   } catch {
     notFound();
   }
