@@ -20,7 +20,7 @@ Regarding PRs into development, please make all PRs into the development branch 
 2. Create a new branch using the format below
 3. Work on your fork, then open a pull request
    1. When opening a PR, the title of the PR should follow this example -> [TCP-23] Feat: adds dropdown menu
-4. Your PR will be reviewed, and if it is approved it will be merged into main
+4. Your PR will be reviewed, and if it is approved it will be merged into development
 
 ### What to call your newly created branch
 

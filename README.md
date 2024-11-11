@@ -26,6 +26,10 @@ Contributions are always welcome!
 
 See `contributing.md` for ways to get started.
 
+## docs
+
+See `/docs` for associated documentation on how to get started with the project.
+
 ## License
 
 [MIT](/LICENSE)
