@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./NavigationBar.module.css";
 import cx from "clsx";
 
-import Logo from "../../public/Assets/svgs/logo";
+import Logo from "../svgs/logo";
 import Link from "next/link";
 
 import { client } from "@sanity/lib/client";

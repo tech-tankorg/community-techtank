@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "ci:test": "vitest run"
+    "ci:test": "vitest run",
+    "dc-run-dev": "docker compose -f ./compose.dev.yml up",
+    "dc-build-dev": "docker compose -f ./compose.dev.yml build",
+    "dc-run-prod": "docker compose -f ./compose.prod.yml up",
+    "dc-build-prod": "docker compose -f ./compose.prod.yml build"
   },
   "keywords": [
     "Tech Tank",
@@ -33,6 +37,7 @@
     "sanity": "^3.58.0",
     "sanity-plugin-cloudinary": "^1.1.3",
     "sanity-plugin-markdown": "^5.0.0",
+    "sharp": "^0.33.5",
     "shiki": "^1.21.0",
     "styled-components": "^6.1.13"
   },
