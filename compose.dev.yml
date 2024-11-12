@@ -5,7 +5,6 @@ services:
       context: .
       dockerfile: dev.Dockerfile
 
-    # Set environment variables directly in the compose file
     environment:
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${NEXT_PUBLIC_SANITY_PROJECT_ID}
       NEXT_PUBLIC_SANITY_DATASET: ${NEXT_PUBLIC_SANITY_DATASET}
@@ -13,7 +12,6 @@ services:
       CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
       CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
 
-    # Set environment variables based on the .env file
     env_file:
       - .env
     volumes:
@@ -25,9 +23,5 @@ services:
     networks:
       - my_network
 
-  # Add more containers below (nginx, postgres, etc.)
-
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
 networks:
   my_network:
