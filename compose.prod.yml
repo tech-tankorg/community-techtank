@@ -1,0 +1,20 @@
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+      args:
+        NEXT_PUBLIC_SANITY_PROJECT_ID: ${NEXT_PUBLIC_SANITY_PROJECT_ID}
+        NEXT_PUBLIC_SANITY_DATASET: ${NEXT_PUBLIC_SANITY_DATASET}
+        CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+        CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+        CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - my_network
+
+networks:
+  my_network:

@@ -2,7 +2,7 @@ import React from "react";
 import cx from "clsx";
 import styles from "./Footer.module.css";
 
-import Logo from "../../public/Assets/svgs/logo";
+import Logo from "../svgs/logo";
 import IconContext from "../../utils/context/IconContext";
 
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa6";
